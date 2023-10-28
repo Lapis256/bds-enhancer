@@ -143,10 +143,9 @@ async function handleStdout(
 
       const match = string.match(regExpConnected);
       if (match) {
-        const playerName = match[1];
-        const playerId = match[2];
+        const player = { name: match[1], xuid: match[2] };
         await executeCommand(
-          `scriptevent bds_enhancer:joinPlayer ${{ playerName, playerId }}}`
+          `scriptevent bds_enhancer:joinPlayer ${JSON.stringify(player)}`
         );
       }
     }
