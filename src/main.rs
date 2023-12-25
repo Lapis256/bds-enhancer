@@ -19,7 +19,7 @@ use log_level::LogLevel;
 use stream::LogDelimiterStream;
 
 lazy_static::lazy_static! {
-    static ref ACTION_MESSAGE_REGEX: Regex = Regex::new(r".*\[Scripting\] bds_enhancer:(?P<json>\{.*\})?").unwrap();
+    static ref ACTION_MESSAGE_REGEX: Regex = Regex::new(r".*\[Scripting\] bds_enhancer:(?P<json>\{.*\})").unwrap();
     static ref LOG_REGEX: Regex = Regex::new(&format!(r"{} (?P<level>(INFO|WARN|ERROR))\] ", LOG_PREFIX)).unwrap();
 }
 
@@ -68,9 +68,9 @@ fn handle_action(child_stdin: &Sender<String>, action: Action) {
         Action::Kick(arg) => {
             execute_command(child_stdin, format!("kick {} {}", arg.player, arg.reason))
         }
-        Action::Reload(_) => execute_command(child_stdin, "reload".to_string()),
-        Action::Stop(_) => execute_command(child_stdin, "stop".to_string()),
-        Action::Save(_) => execute_command(child_stdin, "save hold".to_string()),
+        Action::Reload => execute_command(child_stdin, "reload".to_string()),
+        Action::Stop => execute_command(child_stdin, "stop".to_string()),
+        Action::Save => execute_command(child_stdin, "save hold".to_string()),
     }
 }
 

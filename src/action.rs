@@ -1,17 +1,17 @@
 use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
-#[serde(untagged)]
+#[serde(tag = "action", content = "payload", rename_all = "lowercase")]
 pub enum Action {
-    Reload(EmptyPayload),
-    Stop(EmptyPayload),
-    Save(EmptyPayload),
+    Reload,
+    Stop,
+    Save,
     Transfer(TransferPayload),
     Kick(KickByIdPayload),
 }
 
 #[derive(Debug, Deserialize)]
-pub struct EmptyPayload;
+pub struct EmptyPayload {}
 
 #[derive(Debug, Deserialize)]
 pub struct TransferPayload {
