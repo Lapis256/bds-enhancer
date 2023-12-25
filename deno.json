@@ -1,9 +1,0 @@
-{
-  "tasks": {
-    "run": "deno run -A ./cli.ts",
-    "compile": "deno compile -A -o bds.exe ./cli.ts"
-  },
-  "imports": {
-    "std/": "https://deno.land/std@0.197.0/"
-  }
-}
