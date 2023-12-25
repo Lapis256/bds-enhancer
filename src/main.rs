@@ -70,7 +70,6 @@ fn handle_action(child_stdin: &Sender<String>, action: Action) {
         }
         Action::Reload => execute_command(child_stdin, "reload".to_string()),
         Action::Stop => execute_command(child_stdin, "stop".to_string()),
-        Action::Save => execute_command(child_stdin, "save hold".to_string()),
     }
 }
 

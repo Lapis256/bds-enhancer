@@ -5,7 +5,6 @@ use serde::Deserialize;
 pub enum Action {
     Reload,
     Stop,
-    Save,
     Transfer(TransferPayload),
     Kick(KickByIdPayload),
 }
