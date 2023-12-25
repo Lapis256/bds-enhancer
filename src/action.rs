@@ -10,9 +10,6 @@ pub enum Action {
 }
 
 #[derive(Debug, Deserialize)]
-pub struct EmptyPayload {}
-
-#[derive(Debug, Deserialize)]
 pub struct TransferPayload {
     pub player: String,
     pub host: String,
