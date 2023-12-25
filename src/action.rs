@@ -22,6 +22,6 @@ pub struct TransferPayload {
 
 #[derive(Debug, Deserialize)]
 pub struct KickByIdPayload {
-    pub player_id: String,
+    pub player: String,
     pub reason: String,
 }

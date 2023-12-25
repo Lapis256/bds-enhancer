@@ -65,10 +65,9 @@ fn handle_action(child_stdin: &Sender<String>, action: Action) {
             child_stdin,
             format!("transfer {} {} {}", arg.player, arg.host, arg.port),
         ),
-        Action::Kick(arg) => execute_command(
-            child_stdin,
-            format!("kick {} {}", arg.player_id, arg.reason),
-        ),
+        Action::Kick(arg) => {
+            execute_command(child_stdin, format!("kick {} {}", arg.player, arg.reason))
+        }
         Action::Reload(_) => execute_command(child_stdin, "reload".to_string()),
         Action::Stop(_) => execute_command(child_stdin, "stop".to_string()),
         Action::Save(_) => execute_command(child_stdin, "save hold".to_string()),
