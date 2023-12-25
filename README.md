@@ -24,7 +24,7 @@ Please download and use it from [Releases](https://github.com/Lapis256/bds-enhan
 How to run for debugging
 
 ```
-cargo run -- <BDSのディレクトリ>
+cargo run -- <Directory of BDS>
 ```
 
 How to create a release build
